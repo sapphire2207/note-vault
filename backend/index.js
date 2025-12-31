@@ -2,6 +2,10 @@ import dotenv from 'dotenv'
 dotenv.config({
     path: './.env'
 })
+
+console.log("Mongo URI exists:", !!process.env.MONGODB_URI);
+console.log("Mongo URI value:", process.env.MONGODB_URI ? "FOUND" : "MISSING");
+
 import connectToDB from './db/dbConnect.js'
 import app from './app.js'
 
