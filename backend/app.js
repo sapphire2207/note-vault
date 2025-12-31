@@ -1,8 +1,16 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import fs from "fs";
+import path from "path";
 
 const app = express();
+
+const tempDir = path.join(process.cwd(), "public", "temp");
+
+if (!fs.existsSync(tempDir)) {
+    fs.mkdirSync(tempDir, { recursive: true });
+}
 
 app.use(
     cors({
